@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["title"] = "Customer Page";
+}
+
+<table class="table">
+    <thead class="table-dark">
+        <td>#</td>
+        <td>Name</td>
+        <td>Number</td>
+        <td>Age</td>
+    </thead>
+    <tbody>
+        @model Customer[]
+        @foreach (var c in Model)
+        {
+        <tr onclick="window.location.href = 'Customer/Details/@c.Id'">
+            <td>@c.Id</td>
+                <td><a asp-action="Details" asp-id="@c.Id">@c.Name</a></td>
+            <td>@c.Number</td>
+            <td>@c.Age</td>
+        </tr>  
+        }
+    </tbody>
+</table>
+<a href="/Customer/Details">Details Page</a>
